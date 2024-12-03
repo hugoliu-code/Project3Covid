@@ -91,8 +91,8 @@ export default function ApiForm() {
   };
 
   return (
-    <div class="flex flex-col">
-      <div class="space-x-4 flex mt-4">
+    <div className="flex flex-col">
+      <div className="space-x-4 flex mt-4">
         <select
           type="text"
           className="border p-2 w-full text-gray-400"
