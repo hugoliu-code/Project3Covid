@@ -123,8 +123,8 @@ export default function ApiForm() {
         </button>
       </div>
       {response && (
-        <div className="mt-4 p-4 bg-gray-100 rounded">
-          <strong>Response:</strong> {response}
+        <div className="mt-4 p-4">
+          <strong className="text-gray-200">Percentile:</strong> {response}
         </div>
       )}
     </div>
