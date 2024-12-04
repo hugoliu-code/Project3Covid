@@ -69,7 +69,8 @@ export default function ApiForm() {
     }
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/get_percentile_test", {
+      setResponse(null);
+      const res = await fetch("http://127.0.0.1:5000/get_percentile", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -131,13 +132,18 @@ export default function ApiForm() {
       {/* DISPLAY RESULTS HERE */}
 
       {response && (
-        <div className="mt-4 p-4 ">
-          <strong className="text-gray-200">Percentile</strong>
-          <h1>{response}</h1>
-          <strong className="text-gray-200">Merge Time</strong>
+        <div className="mt-4 p-4 flex flex-col items-center">
+          <strong className="text-gray-200 mt-4">Percentile</strong>
+          <h1>{response} %</h1>
+          <strong className="text-gray-200 mt-4">Merge Time</strong>
           <h1>{mergetime}</h1>
-          <strong className="text-gray-200">Heap Time</strong>
+          <strong className="text-gray-200 mt-4">Heap Time</strong>
           <h1>{heaptime}</h1>
+        </div>
+      )}
+      {!response && (
+        <div className="mt-4 p-4 flex flex-col items-center">
+          <h1>LOADING...</h1>
         </div>
       )}
     </div>
