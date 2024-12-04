@@ -13,6 +13,6 @@ print(data[:10]) # display the first 10 values
 
 data.sort(key = lambda x: x[2]) # sorting based on the 2nd (last) value in the tuple
 
-print(data[:10]) # notice that the printed values have 0 covid cases. This is because we have successfully sorted our tuples
+print(data[-10:]) # notice that the printed values have 0 covid cases. This is because we have successfully sorted our tuples
 
 # we now have to do the same using our own merge and heap sort
