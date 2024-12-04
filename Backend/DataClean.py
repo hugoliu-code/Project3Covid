@@ -14,4 +14,8 @@ def get_data() -> list[tuple]:
 
     df = df.drop(df.columns.difference(["county","state","covid_cases_per_100k"]), axis=1)
 
+    idx = df.groupby(['state', 'county'])['covid_cases_per_100k'].idxmax()
+
+    df = df.loc[idx].reset_index(drop=True)
+
     return [tuple(row) for row in df.itertuples(index=False)]
