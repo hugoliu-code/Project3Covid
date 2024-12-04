@@ -3,6 +3,8 @@ from DataClean import get_data
 
 data = get_data()
 
+print(len(data))
+
 print(data[:10]) # display the first 10 values
 
 # the data is a list of tuples. Each tuple is formatted like: (county name, state, covid_cases_per_100k)
