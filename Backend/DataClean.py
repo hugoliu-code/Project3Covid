@@ -1,7 +1,9 @@
 import pandas
+import os
 
 def get_data() -> list[tuple]:
-    df = pandas.read_csv("Backend/Data.csv")
+    current_folder = os.path.dirname(os.path.abspath(__file__))
+    df = pandas.read_csv(current_folder + "/Data.csv")
 
     df.columns
     """Columns are: county, county_fips, state, county_population, health_service_area_number, heath_service_area, 

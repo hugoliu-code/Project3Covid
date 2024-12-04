@@ -59,6 +59,8 @@ export default function ApiForm() {
   const [dropdownValue, setDropdownValue] = useState("");
   const [textValue, setTextValue] = useState("");
   const [response, setResponse] = useState(null);
+  const [heaptime, setHeapTime] = useState(null);
+  const [mergetime, setMergeTime] = useState(null);
 
   const handleSubmit = async () => {
     if (!dropdownValue || !textValue.trim()) {
@@ -67,14 +69,14 @@ export default function ApiForm() {
     }
 
     try {
-      const res = await fetch("/api/endpoint", {
+      const res = await fetch("http://127.0.0.1:5000/get_percentile_test", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           state: dropdownValue,
-          input: textValue,
+          county: textValue,
         }),
       });
 
@@ -83,7 +85,10 @@ export default function ApiForm() {
       }
 
       const data = await res.json();
-      setResponse(data.message); // Adjust based on your API response structure
+
+      setResponse(data.percentile); // Adjust based on your API response structure
+      setMergeTime(data.merge_time);
+      setHeapTime(data.heap_time);
     } catch (error) {
       console.error("Error:", error);
       setResponse("Something went wrong. Please try again.");
@@ -91,7 +96,7 @@ export default function ApiForm() {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col items-center">
       <div className="space-x-4 flex mt-4">
         <select
           type="text"
@@ -122,9 +127,17 @@ export default function ApiForm() {
           Submit
         </button>
       </div>
+
+      {/* DISPLAY RESULTS HERE */}
+
       {response && (
-        <div className="mt-4 p-4">
-          <strong className="text-gray-200">Percentile:</strong> {response}
+        <div className="mt-4 p-4 ">
+          <strong className="text-gray-200">Percentile</strong>
+          <h1>{response}</h1>
+          <strong className="text-gray-200">Merge Time</strong>
+          <h1>{mergetime}</h1>
+          <strong className="text-gray-200">Heap Time</strong>
+          <h1>{heaptime}</h1>
         </div>
       )}
     </div>
