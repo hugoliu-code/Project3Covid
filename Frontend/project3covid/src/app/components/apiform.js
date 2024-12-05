@@ -91,8 +91,8 @@ export default function ApiForm() {
       setMergeTime(data.merge_time);
       setHeapTime(data.heap_time);
     } catch (error) {
-      console.error("Error:", error);
-      setResponse("Something went wrong. Please try again.");
+      // console.error("Error:", error);
+      setResponse("County not found in this state.");
     }
   };
 
