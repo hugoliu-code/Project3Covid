@@ -11,8 +11,18 @@ Citation:
 Center for Disease Control, United States COVID-19 Community Levels by County. Link: https://data.cdc.gov/Public-Health-Surveillance/United-States-COVID-19-Community-Levels-by-County/3nnm-4jni/about_data
 
 
-HOW TO RUN THE APPLICATION ========================================================================================================
+DEPENDENCIES ======================================================================================================================
 
+frontend
+- requires Next.js installation
+- run 'npm install' in the Project3Covid/Frontend/Project3covid directory to install all node modules
+
+backend
+- all python requirements are in the requirements.txt
+- use 'pip install -r requirements.txt' to install libraries into your environment
+
+
+HOW TO RUN THE APPLICATION ========================================================================================================
 
 To run the backend locally:
 
